@@ -1,7 +1,7 @@
 {
-  "name": "bare-bones-express",
+  "name": "pertonic-express-pg-react",
   "version": "1.0.0",
-  "description": "Bare Bones express app",
+  "description": "Bare Bones express app with react view library",
   "main": "server.js",
   "dependencies": {
     "babel": "^6.5.2",
