@@ -21,6 +21,7 @@ var port = process.env.PORT || 8080;
 // VIEW ENGIN setup
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
+
 app.engine('jsx', require('express-react-views').createEngine());
 
 
