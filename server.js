@@ -4,19 +4,23 @@
 // ==============================================
 
 // call the packages I need
-var express = require('express') //call express
-var app = express()
-var bodyParser = require ('body-parser');
-var mongoose = require('mongoose');
-var Panel = require('./app/models/panel.js')
-var controllers = require('./controllers')
-var routes = require('./routes/index.js')
+var express = require('express'), //call express
+    app = express(),
+    pg = require('pg'),
+    bodyParser = require ('body-parser'),
+    Panel = require('./app/models/panel.js'),
+    controllers = require('./controllers'),
+    routes = require('./routes/index.js')
 
+// DB connection string
+var connect = "postgres://Uili:password@localhost/PertronicTest"
+// var data = controllers.getItems;
+console.log('items from controllers', controllers.getItems)
+// console.log('controllers.items: ', data);
 // configure the app to use bodyParser()
 // this will allow us to get the data from POST
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.set('port', process.env.PORT || 8080);
 var port = process.env.PORT || 8080;
 
 // VIEW ENGIN setup
@@ -27,7 +31,6 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 
 // connection to postgres DATABASE knex
-// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o')
 // var pg = require('knex')({
 //   client: 'pg',
 //   connection: process.enve.PG_CONNECTION_STRING,
@@ -36,12 +39,18 @@ app.engine('jsx', require('express-react-views').createEngine());
 // });
 
 // ROUTES FOR OUR API
+// I will try to extract these to the routes folder
 // ================================
 
 // get and instance of the express Router
 var router = express.Router();
 
 // middleware to use for all requests
+
+// Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 router.use(function(req, res, next){
   // do the logging
   console.log('Something is happening.');
@@ -51,7 +60,7 @@ router.use(function(req, res, next){
 
 // test route to make sure everything is working (accessed at GET http:localhost:8080/api)
 router.get('/', function(req, res) {
-  res.render('index', {name: 'Express-React-Views'});
+  res.render('index', {name: 'Holy moly Uili is awesome!', word: 'drink this'});
 });
 
 // available at http://localhost:8080/api/products
