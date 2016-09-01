@@ -10,12 +10,13 @@ var bodyParser = require ('body-parser');
 var mongoose = require('mongoose');
 var Panel = require('./app/models/panel.js')
 var controllers = require('./controllers')
+var routes = require('./routes/index.js')
 
 // configure the app to use bodyParser()
 // this will allow us to get the data from POST
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+app.set('port', process.env.PORT || 8080);
 var port = process.env.PORT || 8080;
 
 // VIEW ENGIN setup
@@ -31,7 +32,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 //   client: 'pg',
 //   connection: process.enve.PG_CONNECTION_STRING,
 //   aquireConnectionTimeout: 10000,
-//   searchPath: 'knex,public'
+//   searchPath: 'knex, public'
 // });
 
 // ROUTES FOR OUR API
