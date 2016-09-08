@@ -8,7 +8,7 @@ var express = require('express'), //call express
     app = express(),
     pg = require('pg'),
     bodyParser = require ('body-parser'),
-    Panel = require('./app/models/panel.js'),
+    // Panel = require('./app/models/panel.js'),
     controllers = require('./controllers'),
     routes = require('./routes/index.js')
 
@@ -60,7 +60,7 @@ router.use(function(req, res, next){
 
 // test route to make sure everything is working (accessed at GET http:localhost:8080/api)
 router.get('/', function(req, res) {
-  res.render('index', {name: 'Holy moly Uili is awesome!', word: 'drink this'});
+  res.render('index', {name: 'Panel Order Wizard', word: 'Make Selections Below'});
 });
 
 // available at http://localhost:8080/api/products
