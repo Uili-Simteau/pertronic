@@ -1,30 +1,45 @@
 const DefaultLayout = require('./layouts/master')
 const React = require('react');
-var { Tab, Tabs } = require('react-bootstrap')
+var {  FormGroup, FormControl, InputGroup, Radio, Tab, Tabs  } = require('react-bootstrap')
 // const tabsInstance = require('./layouts/tabs')
 
-const tabsInstance = React.createClass({
-  render: function(){
-    return (
-      <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
-        <Tab eventKey={1} title="Tab 1">Tab 1 content</Tab>
-        <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
-        <Tab eventKey={3} title="Tab 3" disabled>Tab 3 content</Tab>
-      </Tabs>
-    )
-  }
-});
 
 const IndexComponent = React.createClass({
+
+  getInitialState(){
+    return {
+      key: 1
+    };
+  },
+
+  handleSelect(key) {
+    this.setState({key});
+    console.log('This is the key', key)
+  },
+
   render: function(){
     return (
       <DefaultLayout name={this.props.name}>
         <div>
           <h1>{this.props.name}</h1>
           <h2>{this.props.word}</h2>
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+          <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
             <Tab eventKey={1} title="Country">
               <h2>Country standard</h2>
+              <form>
+                  <Radio >
+                    New Zealand NZS4512:1997                    
+                  </Radio>
+                  <Radio >
+                    New Zealand NZS4512: 2003/2010
+                  </Radio>
+                  <Radio >
+                    Australia AS4428.1
+                  </Radio>
+                  <Radio >
+                    Australia AS7240.2
+                  </Radio>
+              </form>
             </Tab>
             <Tab eventKey={2} title="System">
               <h2>System</h2>

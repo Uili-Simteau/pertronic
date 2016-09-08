@@ -10,6 +10,7 @@ var MasterLayout = React.createClass({
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
 
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"/>
+            <link rel="stylesheet" href="../style/main.css"/>
         </head>
         <body>
             {this.props.children}
