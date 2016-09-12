@@ -10,12 +10,11 @@ var express = require('express'), //call express
     bodyParser = require ('body-parser'),
     // Panel = require('./app/models/panel.js'),
     controllers = require('./controllers'),
-    routes = require('./routes/index.js')
 
 // DB connection string
-var connect = "postgres://Uili:password@localhost/PertronicTest"
+// var connect = "postgres://Uili:password@localhost/PertronicTest"
 // var data = controllers.getItems;
-console.log('items from controllers', controllers.getItems)
+// console.log('items from controllers', controllers.getItems)
 // console.log('controllers.items: ', data);
 // configure the app to use bodyParser()
 // this will allow us to get the data from POST
@@ -77,4 +76,4 @@ app.use('/api', router);
 // START THE SERVER
 // =================================
 app.listen(port);
-console.log('Magic happening on port ' + port);
+console.log('Panel order Wizard on port ' + port);

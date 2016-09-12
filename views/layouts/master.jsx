@@ -1,6 +1,6 @@
-var React = require('react')
+import React from 'react'
 
-var MasterLayout = React.createClass({
+const MasterLayout = React.createClass({
   render: function(){
     return (
       <html lang="eg">
@@ -10,9 +10,9 @@ var MasterLayout = React.createClass({
             <title>{this.props.name}</title>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"/>
-            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="main.css" rel="stylesheet" />
         </head>
         <body>
             {this.props.children}

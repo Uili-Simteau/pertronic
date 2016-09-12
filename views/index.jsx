@@ -1,27 +1,21 @@
-const DefaultLayout = require('./layouts/master')
-const React = require('react');
-const {  Button, FormGroup, FormControl, Input, InputGroup, Radio, Tab, Tabs, Table  } = require('react-bootstrap')
+import DefaultLayout from './layouts/master'
+import React, { Component } from 'react'
+import {  Button, FormGroup, FormControl, Input, InputGroup, Radio, Tab, Tabs, Table  } from 'react-bootstrap'
 
 
-const IndexComponent = React.createClass({
+class IndexComponent extends Component {
 
-  getInitialState(){
-    return {
-      key: 1
-    }
-  },
+  constructor (props) {
+    super(props)
+  }
 
-  // handleSelect(key) {
-  //   this.setState(key)
-  // },
-
-  render: function(){
+  render (){
     return (
       <DefaultLayout name={this.props.name}>
         <div className="container">
           <h1>{this.props.name}</h1>
           <h2>{this.props.word}</h2>
-          <Tabs defaultActiveKey={1} id="controlled-tab-example">
+          <Tabs defaultActiveKey={2} id="controlled-tab-example">
             <Tab eventKey={1} title="Country">
               <h2>Country Standard</h2>
               <form>
@@ -126,6 +120,6 @@ const IndexComponent = React.createClass({
       </DefaultLayout>
     )
   }
-});
+};
 
-module.exports = IndexComponent
+export default IndexComponent

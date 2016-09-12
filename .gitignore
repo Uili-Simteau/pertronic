@@ -3,6 +3,13 @@ logs
 *.log
 npm-debug.log*
 
+node_modules
+
+/bundle.js
+
+.DS_Store
+/dist
+
 # Runtime data
 pids
 *.pid
